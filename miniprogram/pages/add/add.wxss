@@ -1,0 +1,76 @@
+/* miniprogram/pages/add/add.wxss */
+
+/* 导航 */
+.add .bar {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.add .bar text {
+  width: 70px;
+  line-height: 1;
+  padding: 4px 0;
+  position: relative;
+  text-align: center;
+  transition: .2s;
+}
+
+.add .bar text.select {
+  color: white;
+  background-color: #a7880b;
+  border-radius: 4px;
+}
+
+/* 底部 */
+.add .keyboard {
+  width: 100%;
+  height: 250px;
+  position: fixed;
+  bottom: 4px;
+  display: flex; 
+  flex-wrap: wrap;
+}
+
+.add .keyboard .row {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  border-top: 1px solid #ccc;
+}
+
+.add .keyboard .row view {
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #ccc;
+}
+
+.add .keyboard .row view:active {
+  background-color: #ccc;
+}
+
+.add .keyboard .row input {
+  height: 100%;
+}
+
+.add .keyboard .row view .iconfont {
+  font-size: 36rpx;
+  transform: translateY(4rpx);
+}
+
+.add .keyboard .row view.money {
+  justify-content: flex-end;
+  font-size: 40rpx;
+}
+
+.add .keyboard .row view.no-border {
+  border: none;
+}

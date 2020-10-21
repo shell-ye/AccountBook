@@ -1,0 +1,8 @@
+<!--miniprogram/pages/users/users.wxml-->
+<view>
+  <view class="no-login" wx:if="!login_bool">
+    <image src="/images/no_login.png"></image>
+    <text>您还未登录</text>
+    <button class="btn" type="primary" open-type="getUserInfo" bindgetuserinfo="login">微信授权登录</button>
+  </view>
+</view>

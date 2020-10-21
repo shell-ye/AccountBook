@@ -1,0 +1,23 @@
+/* miniprogram/pages/users/users.wxss */
+
+.no-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.no-login image {
+  width: 88px;
+  height: 88px;
+}
+
+.no-login text {
+  color: gray;
+  margin: 20px 0 10px 0;
+}
+
+.no-login button {
+  font-weight: normal;
+}

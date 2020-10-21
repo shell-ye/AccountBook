@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/users/users",
+    "pages/add/add",
+    "pages/index/index",
+    "pages/user/user",
+    "pages/userConsole/userConsole",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib",
+    "pages/openapi/openapi",
+    "pages/openapi/serverapi/serverapi",
+    "pages/openapi/callback/callback",
+    "pages/openapi/cloudid/cloudid",
+    "pages/im/im",
+    "pages/im/room/room"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFDA44",
+    "navigationBarTitleText": "记账",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#767676",
+    "selectedColor": "#767676",
+    "list": [
+      {
+        "pagePath": "pages/openapi/openapi",
+        "iconPath": "images/tabbar/count.png",
+        "selectedIconPath": "images/tabbar/count_active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/add/add",
+        "iconPath": "images/tabbar/plus.png",
+        "selectedIconPath": "images/tabbar/plus_active.png",
+        "text": "记账"
+      },
+      {
+        "pagePath": "pages/users/users",
+        "iconPath": "images/tabbar/user.png",
+        "selectedIconPath": "images/tabbar/user_active.png",
+        "text": "用户"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

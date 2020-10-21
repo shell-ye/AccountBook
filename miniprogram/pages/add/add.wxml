@@ -1,0 +1,47 @@
+<!--miniprogram/pages/add/add.wxml-->
+<view class="add">
+  <!-- 导航 -->
+  <view class="bar theme-bg-yellow">
+      <text bindtap="changeSelect" class="{{selected == 'expenditure' ? 'select' : ''}}" data-type="expenditure">收入</text>
+      <text bindtap="changeSelect" class="{{selected == 'income' ? 'select' : ''}}" data-type="income">支出</text>
+  </view>
+
+  <!-- 底部 -->
+  <view class="keyboard">
+    <view class="row">
+      <view class="no-border">
+        <text class="iconfont iconfontbeizhu"></text>
+        <text>备注：</text>
+      </view>
+      <input type="text" placeholder="点击写备注"/>
+      <view class="money no-border">{{ money }}</view>
+    </view>
+    <view class="row">
+      <view bindtap="changeMoney" data-number="7">7</view>
+      <view bindtap="changeMoney" data-number="8">8</view>
+      <view bindtap="changeMoney" data-number="9">9</view>
+      <view>
+        <text class="iconfont iconfontrili"></text>
+        <text>今天</text>
+      </view>
+    </view>
+    <view class="row">
+      <view bindtap="changeMoney" data-number="4">4</view>
+      <view bindtap="changeMoney" data-number="5">5</view>
+      <view bindtap="changeMoney" data-number="6">6</view>
+      <view bindtap="changeMoney" data-number="+">+</view>
+    </view>
+    <view class="row">
+      <view bindtap="changeMoney" data-number="1">1</view>
+      <view bindtap="changeMoney" data-number="2">2</view>
+      <view bindtap="changeMoney" data-number="3">3</view>
+      <view bindtap="changeMoney" data-number="-">-</view>
+    </view>
+    <view class="row">
+      <view bindtap="changeMoney" data-number=".">.</view>
+      <view bindtap="changeMoney" data-number="0">0</view>
+      <view class="iconfont iconfonttuige" bindtap="changeMoney" data-number="x"></view>
+      <view class="theme-bg-yellow">完成</view>
+    </view>
+  </view>
+</view>
