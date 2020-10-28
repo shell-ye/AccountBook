@@ -1,29 +1,43 @@
 <!--miniprogram/pages/add/add.wxml-->
+
+<wxs src="./../../wxs/utils.wxs" module="utils"></wxs>
+
 <view class="add">
   <!-- 导航 -->
   <view class="bar theme-bg-yellow">
-      <text bindtap="changeSelect" class="{{selected == 'expenditure' ? 'select' : ''}}" data-type="expenditure">收入</text>
-      <text bindtap="changeSelect" class="{{selected == 'income' ? 'select' : ''}}" data-type="income">支出</text>
+      <text bindtap="changeSelect" class="{{selected == 'expenditure' ? 'select' : ''}}" data-type="expenditure">支出</text>
+      <text bindtap="changeSelect" class="{{selected == 'income' ? 'select' : ''}}" data-type="income">收入</text>
+  </view>
+
+  <!-- 图标 -->
+  <view class="icons" style="{{ keyboardShow ? 'padding-bottom: 500rpx' : '' }}">
+    <view wx:for="{{ showIcons }}" wx:key="index">
+      <view data-icon="{{ item }}" class="{{ selectIcon.iconClass == item.iconClass ? 'theme-bg-yellow' : '' }}" bindtap="select">
+        <text class="{{ 'iconfont ' + item.iconClass }}"></text>
+      </view>
+      <text>{{ item.text }}</text>
+    </view>
   </view>
 
   <!-- 底部 -->
-  <view class="keyboard">
+  <view class="keyboard" class="{{ keyboardShow ? 'keyboard show' : 'keyboard' }}">
     <view class="row">
-      <view class="no-border">
+      <view class="no-border no">
         <text class="iconfont iconfontbeizhu"></text>
         <text>备注：</text>
       </view>
-      <input type="text" placeholder="点击写备注"/>
-      <view class="money no-border">{{ money }}</view>
+      <input type="text" placeholder="点击写备注" bindinput="eidtRemark" value="{{ remark }}"/>
+      <view class="money no-border no">{{ money }}</view>
     </view>
     <view class="row">
       <view bindtap="changeMoney" data-number="7">7</view>
       <view bindtap="changeMoney" data-number="8">8</view>
       <view bindtap="changeMoney" data-number="9">9</view>
-      <view>
-        <text class="iconfont iconfontrili"></text>
-        <text>今天</text>
-      </view>
+      <picker mode="date" start="2020-01" end="2060-01" bindchange="selectDate">
+        <text class="iconfont iconfontrili" wx:if="{{ today == time }}"></text>
+        <text wx:if="{{ today == time }}">今天</text>
+        <text wx:else style="font-size: 28rpx">{{ utils.substring( time, 0, 10 ) }}</text>
+      </picker>
     </view>
     <view class="row">
       <view bindtap="changeMoney" data-number="4">4</view>
@@ -41,7 +55,8 @@
       <view bindtap="changeMoney" data-number=".">.</view>
       <view bindtap="changeMoney" data-number="0">0</view>
       <view class="iconfont iconfonttuige" bindtap="changeMoney" data-number="x"></view>
-      <view class="theme-bg-yellow">完成</view>
+      <view class="theme-bg-yellow" wx:if="{{ calculation }}" bindtap="calculate">=</view>
+      <view class="theme-bg-yellow" wx:else bindtap="submit">完成</view>
     </view>
   </view>
 </view>

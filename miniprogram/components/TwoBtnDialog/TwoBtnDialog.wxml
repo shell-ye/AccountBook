@@ -1,0 +1,10 @@
+<!--components/TwoBtnDialog/TwoBtnDialog.wxml-->
+<mp-dialog 
+  title="{{ title }}" 
+  show="{{ dialogShow }}" 
+  bindbuttontap="confirm" 
+  bindclose="cancel"
+  buttons="{{ buttons }}" 
+>
+  <slot></slot>
+</mp-dialog>

@@ -159,5 +159,18 @@ page {
 
 /* color: #FFDA44; */
 .theme-bg-yellow {
-  background-color: #FFDA44;
+  background-color: #FFDA44!important;
+}
+
+.iconfontyou {
+  font-size: 24rpx;
+  color: #b4b4b4;
+}
+
+.gray {
+  color: #b4b4b4;
+}
+
+.deep-gray {
+  color: #6e6e6e;
 }

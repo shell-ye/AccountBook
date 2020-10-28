@@ -1,0 +1,48 @@
+export default {
+  icons: {
+    expenditure: [
+      {iconClass: 'iconfontcanyin1', text: '餐饮'},
+      {iconClass: 'iconfontgouwu', text: '购物'},
+      {iconClass: 'iconfontriyong', text: '日用'},
+      {iconClass: 'iconfontjiaotonggongjiaochekanfangtuandabaxianxing', text: '交通'},
+      {iconClass: 'iconfontshucai', text: '蔬菜'},
+      {iconClass: 'iconfontshuiguo', text: '水果'},
+      {iconClass: 'iconfontlingshi', text: '零食'},
+      {iconClass: 'iconfontyundong', text: '运动'},
+      {iconClass: 'iconfontrecreation', text: '娱乐'},
+      {iconClass: 'iconfonttongxun', text: '通讯'},
+      {iconClass: 'iconfontfushi', text: '服饰'},
+      {iconClass: 'iconfontmeirong', text: '美容'},
+      {iconClass: 'iconfontzhufang', text: '住房'},
+      {iconClass: 'iconfontjujia', text: '居家'},
+      {iconClass: 'iconfonthaizi', text: '孩子'},
+      {iconClass: 'iconfontchangbei', text: '长辈'},
+      {iconClass: 'iconfontshejiao', text: '社交'},
+      {iconClass: 'iconfontlvxing', text: '旅行'},
+      {iconClass: 'iconfontyanjiu', text: '烟酒'},
+      {iconClass: 'iconfontshuma', text: '数码'},
+      {iconClass: 'iconfontqiche', text: '汽车'},
+      {iconClass: 'iconfontyiliao', text: '医疗'},
+      {iconClass: 'iconfontshuji', text: '书籍'},
+      {iconClass: 'iconfontxuexi', text: '学习'},
+      {iconClass: 'iconfontchongwu', text: '宠物'},
+      {iconClass: 'iconfontlijin', text: '礼金'},
+      {iconClass: 'iconfontliwu', text: '礼物'},
+      {iconClass: 'iconfontbangong', text: '办公'},
+      {iconClass: 'iconfontweixiu', text: '维修'},
+      {iconClass: 'iconfontjuanzeng', text: '捐赠'},
+      {iconClass: 'iconfontcaipiao', text: '彩票'},
+      {iconClass: 'iconfontqinyoujiankang', text: '亲友'},
+      {iconClass: 'iconfonttruck', text: '快递'},
+      {iconClass: 'iconfontshezhi', text: '设置'}
+    ],
+    income: [
+      {iconClass: 'iconfontgongzi', text: '工资'},
+      {iconClass: 'iconfontjianzhi', text: '兼职'},
+      {iconClass: 'iconfontlicai', text: '理财'},
+      {iconClass: 'iconfontlijin', text: '礼金'},
+      {iconClass: 'iconfontlicai1', text: '其他'},
+      {iconClass: 'iconfontshezhi', text: '设置'},
+    ]
+  }
+}

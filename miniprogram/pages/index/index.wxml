@@ -1,2 +1,60 @@
 <!--miniprogram/pages/index/index.wxml-->
-<text>miniprogram/pages/index/index.wxml</text>
+
+<wxs src="./../../wxs/utils.wxs" module="utils"></wxs>
+
+<view class="index">
+  <!-- 头部 -->
+  <view class="head theme-bg-yellow">
+    <view class="data">
+      <view class="time">
+        <text class="deep-gray">{{ time.year }}年</text>
+        <view>
+          <picker mode="date" start="2020-01" end="2060-01" bindchange="selectDate" fields="month">
+            <view class="picker">
+              <text>{{ time.month }}</text>
+              <text style="font-size: 24rpx">月</text>
+              <text class="iconfont iconfontxia" style="font-size: 24rpx; margin-left: 12rpx;"></text>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view>
+        <text class="deep-gray">收入</text>
+        <view>
+          <text>{{ utils.numberSplit( list.income, 'l' ) }}</text>
+          <text>.{{ utils.numberSplit( list.income, 'r' ) }}</text>
+        </view>
+      </view>
+      <view>
+        <text class="deep-gray">支出</text>
+        <view>
+          <text>{{ utils.numberSplit( list.expenditure, 'l' ) }}</text>
+          <text>.{{ utils.numberSplit( list.expenditure, 'r' ) }}</text>
+        </view>
+      </view>
+    </view>
+    <view class="bar">
+      <view wx:for="{{ bar }}" wx:key="index">
+        <image src="{{ item.src }}"></image>
+        <text>{{ item.text }}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 数据 -->
+  <view class="datas" wx:for="{{ list }}" wx:key="index" wx:if="{{ index != 'expenditure' && index != 'income' }}">
+    <view class="deep-gray">
+      <text>{{ time.month }}月{{ index }}日</text>
+    </view>
+    <navigator url="{{ '/pages/detail/detail?id=' + items.id }}" class="row" wx:for="{{ item }}" wx:for-item="items" wx:for-index="indexs" wx:key="indexs">
+      <view>
+        <view class="theme-bg-yellow">
+          <text class="{{ 'iconfont ' + items.icon }}"></text>
+        </view>
+        <text wx:if="{{ items.remark }}">{{ items.remark }}</text>
+        <text wx:else>{{ items.type }}</text>
+      </view>
+      <view><text wx:if="{{ items.status == 0 }}">-</text><text wx:else>+</text>{{ items.money }}</view>
+    </navigator>
+  </view>
+</view>

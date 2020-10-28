@@ -1,1 +1,132 @@
 /* miniprogram/pages/index/index.wxss */
+
+.index {
+  padding-top: 280rpx;
+  background: white;
+}
+
+/* 头部 */
+.head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.head > view {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+.head > view.data > view {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+}
+
+.head > view.data > view.time {
+  width: 20%;
+  padding: 0;
+}
+
+.head > view.data > view.time > view {
+  border-right: 2rpx solid black;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.head > view.data > view > text:first-child, .head > view.data > view > view > text:last-child {
+  font-size: 24rpx;
+}
+
+.head > view.data > view > view > text:first-child, .head > view.data > view.time > view .picker text {
+  font-size: 40rpx;
+}
+
+.head > view.bar {
+  flex-wrap: nowrap;
+  padding: 16rpx 0;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 8rpx;
+  transform: translateY(40rpx);
+  box-shadow: 0 2rpx 12rpx 0 rgba(32, 33, 36, .28);
+}
+
+.head > view.bar view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  flex: 1;
+  text-align: center;
+}
+
+.head > view.bar view image {
+  width: 48rpx;
+  height: 50rpx;
+  margin-bottom: 4rpx;
+}
+
+/* 数据 */
+.datas > view, .datas > navigator {
+  padding: 8rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.datas > view:first-child {
+  font-size: 24rpx;
+  border-bottom: 2rpx solid #d1d1d1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.datas .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120rpx;
+}
+
+.datas .row > view {
+  flex: 1;
+}
+
+.datas .row > view:first-child {
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.datas .row > view:first-child view {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60rpx;
+  margin-right: 20rpx;
+}
+
+.datas .row {
+  font-size: 28rpx;
+}
+
+.datas .row > view:first-child view .iconfont {
+  font-size: 32rpx;
+}
+
+.datas .row view:last-child {
+  text-align: right;
+}

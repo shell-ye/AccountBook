@@ -1,0 +1,36 @@
+<!--miniprogram/pages/edit/edit.wxml-->
+<view class="detail">
+  <view class="theme-bg-yellow icon">
+    <view>
+      <text class="{{ 'iconfont ' + record.icon }}"></text>
+    </view>
+    <text>{{ record.type }}</text>
+  </view>
+  <view class="info">
+    <text class="gray">类型</text>
+    <text wx:if="{{ record.status == 0 }}">支出</text>
+    <text wx:else>收入</text>
+  </view>
+  <view class="info">
+    <text class="gray">金额</text>
+    <text>{{ record.money }}</text>
+  </view>
+  <view class="info">
+    <text class="gray">日期</text>
+    <text>{{ record.timeShow }}</text>
+  </view>
+  <view class="info">
+    <text class="gray">备注</text>
+    <text wx:if="{{ record.remark }}">{{ record.remark }}</text>
+    <text wx:else>无</text>
+  </view>
+
+  <!-- 底部 -->
+  <view class="options">
+    <text bindtap="edit">编辑</text>
+    <text bindtap="openDelDialog">删除</text>
+  </view>
+
+  <!-- 弹窗 -->
+  <TowBtnDialog bindtapbutton="delete" dialog-show="{{ deleteDialog }}">删除后不可恢复，确定要删除这条数据吗？</TowBtnDialog>
+</view>

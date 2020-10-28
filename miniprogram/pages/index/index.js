@@ -1,11 +1,37 @@
 // miniprogram/pages/index/index.js
+
+const app = getApp()
+import { recordList } from './../../api/record'
+import { dateFormat, getIconClass } from './../../utils/index'
+import data from './../../data/index'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    bar: [{
+      text: '账单',
+      src: '/images/icon/account.jpg'
+    }, {
+      text: '预算',
+      src: '/images/icon/budget.jpg'
+    }, {
+      text: '资产管家',
+      src: '/images/icon/housekeeper.jpg'
+    }, {
+      text: '理财知识',
+      src: '/images/icon/konwledge.jpg'
+    }, {
+      text: '购物返现',
+      src: '/images/icon/shopping.jpg'
+    }],
+    time: {
+      year: dateFormat(new Date(), 'yyyy'),
+      month: dateFormat(new Date(), 'MM')
+    },
+    list: {}
   },
 
   /**
@@ -25,8 +51,13 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: async function () {
+    if ( JSON.stringify(app.globalData.userInfo) != '{}' ) {
+      this.getRecordList()
+    } else {
+      await app.getUserInfo()
+      this.getRecordList()
+    }
   },
 
   /**
@@ -62,5 +93,34 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  // 得到记录
+  async getRecordList () {
+    let result = await recordList( this.data.time.year, this.data.time.month )
+    if ( result.data.code == 200 ) {
+      for ( let prop in result.data.data ) {
+        if ( typeof result.data.data[prop] == 'object' ) {
+          result.data.data[prop].forEach(item => {
+            item.icon = getIconClass( item )
+          })
+        }
+      }
+      this.setData({
+        list: result.data.data
+      })
+    }
+  },
+
+  // 选择时间
+  selectDate (e) {
+    this.setData({
+      time: {
+        month: e.detail.value.split('-')[1],
+        year: e.detail.value.split('-')[0]
+      }
+    }, () => {
+      this.getRecordList()
+    })
+  } 
 })

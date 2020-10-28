@@ -1,0 +1,39 @@
+var addDotNum = function ( num, dotPosition ) {
+  num = num.toString()
+  if ( num.indexOf('.') != -1 ) {
+      return parseFloat(num).toFixed(dotPosition)
+  } else {
+    var zeor = ''
+      for ( var i = 0; i < dotPosition; i++ ) {
+          zeor += '0'
+      }
+      return num + '.' + zeor
+  }
+}
+
+var numberSplit = function ( number, position ) {
+  if ( number == undefined ) return
+  number = addDotNum( parseFloat(number), 2 )
+  if ( position == 'l' ) {
+    return number.split('.')[0]
+  } else if ( position == 'r' ) {
+    return number.split('.')[1]
+  } else if ( position == 'n' ) {
+    return number
+  }
+}
+
+var division = function ( divisor_1, divisor_2, split  ) {
+  var dotPosition = split != undefined ? split : 2
+  return parseFloat((divisor_1 / divisor_2) * 100).toFixed(dotPosition)
+}
+
+var substring = function ( str, start, end ) {
+  return str.substring( start, end )
+}
+
+module.exports = {
+  numberSplit: numberSplit,
+  division: division,
+  substring: substring
+}

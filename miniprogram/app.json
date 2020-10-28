@@ -1,21 +1,9 @@
 {
   "pages": [
-    "pages/users/users",
-    "pages/add/add",
     "pages/index/index",
+    "pages/add/add",
     "pages/user/user",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/openapi/openapi",
-    "pages/openapi/serverapi/serverapi",
-    "pages/openapi/callback/callback",
-    "pages/openapi/cloudid/cloudid",
-    "pages/im/im",
-    "pages/im/room/room"
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -29,7 +17,7 @@
     "selectedColor": "#767676",
     "list": [
       {
-        "pagePath": "pages/openapi/openapi",
+        "pagePath": "pages/index/index",
         "iconPath": "images/tabbar/count.png",
         "selectedIconPath": "images/tabbar/count_active.png",
         "text": "首页"
@@ -41,7 +29,7 @@
         "text": "记账"
       },
       {
-        "pagePath": "pages/users/users",
+        "pagePath": "pages/user/user",
         "iconPath": "images/tabbar/user.png",
         "selectedIconPath": "images/tabbar/user_active.png",
         "text": "用户"
@@ -49,5 +37,9 @@
     ]
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "useExtendedLib": {
+    "kbone": true,
+    "weui": true
+  }
 }
