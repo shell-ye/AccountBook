@@ -1,12 +1,11 @@
 const app = getApp()
 
 // 注册
-export const register = (username, head_img, session_key) => {
+export const register = (username, head_img) => {
   return app.request('POST', '/user/register',{
     username,
     head_img,
-    openid: app.globalData.userInfo.openid,
-    session_key
+    openid: app.globalData.userInfo.openid
   })
 }
 

@@ -1,0 +1,65 @@
+<!--miniprogram/pages/advancePay/advancePay.wxml-->
+<view class="advance-pay">
+  <view class="head">预购清单</view>
+
+  <!-- 统计购买 -->
+  <view class="count">
+    <view>
+      <view>
+        <view>
+          <text>{{ advancePayList.length }}</text>
+          <text class="gray">件</text>
+        </view>
+        <text>待购商品</text>
+      </view>
+      <view>
+        <view>
+          <text>{{ advancePayPrice }}</text>
+          <text class="gray">元</text>
+        </view>
+        <text>预计花费</text>
+      </view>
+    </view>
+    <text class="gray">本月预算剩余1000元，请合理购买哦~</text>
+  </view>
+
+  <!-- 购买列表 -->
+  <view class="buy-recently"><text></text><text>最近要买</text></view>
+  <view class="list">
+    <view wx:for="{{ advancePayList }}" wx:key="index" bindtap="openEidt" data-index="{{ index }}">
+      <view>
+        <text class="{{ item.status ? 'iconfont iconfontwebicon19' : 'iconfont iconfontdanxuanweixuanzhong' }}"></text>
+        {{ item.name }}
+      </view>
+      <text>{{ item.money }}</text>
+    </view>
+  </view>
+
+  <!-- 添加数据 -->
+  <view class="add theme-bg-yellow" bindtap="setAddDialog">添加清单</view>
+
+  <!-- Add Dialog -->
+  <mp-dialog title="添加购买清单" show="{{ addDialogShow }}" bindbuttontap="add" buttons="{{ addButtons }}" class="add-dialog">
+    <input class="weui-input" type="text" placeholder="请输入需要买的商品" bindinput="setProduction" data-type="production"/>
+    <input class="weui-input" type="digit" placeholder="请输入商品价格(元)" bindinput="setProduction" data-type="price"/>
+  </mp-dialog>
+
+  <!-- Edit Dialog -->
+  <mp-dialog title="编辑" show="{{ editDialogShow }}" bindbuttontap="edit" buttons="{{ editButtons }}" class="edit-dialog">
+    <view class="status">
+      <text>商品名称：</text>
+      <input class="weui-input" type="text" placeholder="请输入修改后的商品名称" bindinput="eidtProduction" value="{{ production }}" data-type="production" />
+    </view>
+    <view class="status">
+      <text>商品金额：</text>
+      <input class="weui-input" type="text" placeholder="请输入修改后的商品名称" bindinput="eidtProduction" value="{{ money }}" data-type="money" />
+    </view>
+    <view class="status">
+      <text>商品状态：</text>
+      <radio-group>
+        <radio value="0" checked="{{ productionStatus == 0 }}" bindtap="changeStatus" data-value="0">未购买</radio>
+        <radio value="1" checked="{{ productionStatus == 1 }}" bindtap="changeStatus" data-value="1">已购买</radio>
+      </radio-group>
+    </view>
+  </mp-dialog>
+</view>

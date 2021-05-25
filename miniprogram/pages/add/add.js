@@ -47,7 +47,6 @@ Page({
    */
   onShow: function () {
     if ( app.globalData.routerData && app.globalData.routerData.record ) {
-      console.log(app.globalData.routerData.record)
       let selected = app.globalData.routerData.record.status == 0 ? 'expenditure' : 'income'
       let showIcons = selected == 'income' ? data.icons.income : data.icons.expenditure
       let selectIcon = {}

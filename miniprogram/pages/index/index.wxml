@@ -34,10 +34,10 @@
       </view>
     </view>
     <view class="bar">
-      <view wx:for="{{ bar }}" wx:key="index">
+      <navigator url="{{ item.url }}" class="row" wx:for="{{ bar }}" wx:key="index">
         <image src="{{ item.src }}"></image>
         <text>{{ item.text }}</text>
-      </view>
+      </navigator>
     </view>
   </view>
 

@@ -1,0 +1,36 @@
+<!--miniprogram/pages/bill/bill.wxml-->
+<view class="bill">
+  <!-- 时间选择栏目 -->
+  <view class="bar">
+    <text>结余</text>
+    <picker mode="date" start="1997" end="2060" bindchange="selectDate" fields="year">
+      <view class="picker">
+        <text>{{ year }}</text>
+        <text style="font-size: 24rpx">年</text>
+        <text class="iconfont iconfontxia" style="font-size: 24rpx; margin-left: 12rpx;"></text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 今年总计 -->
+  <view class="summary">
+    <text class="summary-money">{{ income - outcome }}</text>
+    <view class="flow">收入 {{ income }}<text>|</text>支出 {{ outcome }}</view>
+  </view>
+
+  <!-- 每月统计表列表 -->
+  <view class="list">
+    <view>
+      <text>月份</text>
+      <text>收入</text>
+      <text>支出</text>
+      <text>结余</text>
+    </view>
+    <view wx:for="{{ list }}" wx:key="index">
+      <text>{{ item.month }}月</text>
+      <text>{{ item.income }}元</text>
+      <text>{{ item.outcome }}元</text>
+      <text>{{ item.income - item.outcome }}元</text>
+    </view>
+  </view>
+</view>

@@ -41,3 +41,11 @@ export const recordList = ( year, month ) => {
     month
   })
 }
+
+// 获取结余信息
+export const summaryList = year => {
+  return app.request('GET', '/record/summary', {
+    openid: app.globalData.userInfo.openid,
+    year
+  })
+}

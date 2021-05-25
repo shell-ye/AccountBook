@@ -1,4 +1,5 @@
 //app.js
+const config = require('./config/dev.js')
 
 App({
   onLaunch: function () {
@@ -67,7 +68,7 @@ App({
   request (method, url, data ) {
     return new Promise((resolve, reject) => {
       wx.request({
-        url: `http://127.0.0.1:3003${url}`,
+        url: config.base_url + url,
         method,
         data,
         dataType: 'json',
@@ -119,10 +120,9 @@ App({
                 },
                 success: res => {
                   userInfo.openid = res.data.openid
-                  userInfo.session_key = res.data.session_key
                   this.globalData.userInfo = userInfo
+                  console.log(userInfo)
                   wx.setStorageSync('app_openid', res.data.openid)
-                  wx.setStorageSync('sessionKey', res.data.session_key)
                   resolve(res.userInfo)
                 }
               })

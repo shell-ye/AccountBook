@@ -1,0 +1,50 @@
+<!--miniprogram/pages/calendar/calendar.wxml-->
+<view class="calendar">
+  <!-- 日期选择 -->
+  <view class="select">
+    <text class="iconfont iconfontxiangzuo" bindtap="getInfo" data-type="decrease"></text>
+    <text>{{ now.year + '.' + now.month }}</text>
+    <text class="iconfont iconfontyou" bindtap="getInfo" data-type="increase"></text>
+  </view>
+
+  <!-- 日历内容 -->
+  <view class="content">
+    <view class="head">
+      <view>Sun</view>
+      <view>Mon</view>
+      <view>Tue</view>
+      <view>Wen</view>
+      <view>Thu</view>
+      <view>Fri</view>
+      <view>Sat</view>
+    </view>
+    <view class="list">
+      <view 
+        wx:for="{{ calendar }}" 
+        wx:key="index" 
+        style="margin-left: {{ index == 0 ? now.week * 14 + '%' : 0 }}" 
+        class="{{ (item.money && item.money > (userInfo.budget / daysCount)) ? 'red' : (item.money && item.money < (userInfo.budget / daysCount)) ? 'green' : '' }}"
+      >
+        <text>{{ item.day }}</text>
+        <text wx:if="{{ item.money != 0 }}">-{{ item.money }}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 选项 -->
+  <view class="options">
+    <view>
+      <text></text>
+      <text>超出预算</text>
+      <text></text>
+      <text>未超出预算</text>
+    </view>
+    <view bindtap="openBudget">设置预算</view>
+  </view>
+
+  <!-- 预算弹窗 -->
+  <!-- Dialog -->
+  <mp-dialog title="每月预算" show="{{ dialogShow }}" bindbuttontap="setBudgetButton" buttons="{{ budgetButtons }}" class="budget-dialog">
+    <input class="weui-input" type="number" placeholder="请输入" bindinput="setBudgetValue"/>
+  </mp-dialog>
+</view>

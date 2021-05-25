@@ -47,37 +47,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function (options) {
-    wx.showLoading({title: '加载中'})
-    
-    // 判断是否注册用户: 是则登录
-    let user = await login()
-    if ( user.data.code == 200 && user.data.login ) {
-      await this.setData({
-        login_bool: true
-      })
-
-      // 写入用户数据 
-      await this.setData({
-        userInfo: {
-          ...app.globalData.userInfo,
-          ...user.data.data
-        },
-        count_info: [{
-          text: '记账总笔数',
-          data: user.data.data.record_num
-        }, {
-          text: '累计收入',
-          data: changeMoney( user.data.data.income_count )
-        }, {
-          text: '累计支出',
-          data: changeMoney( user.data.data.expenditure_count )
-        }]
-      })
-      console.log( this.data.userInfo )
-    }
-
-    wx.hideLoading()
+  onLoad: async function () {
+    this.initHandler()
   },
 
   /**
@@ -129,19 +100,53 @@ Page({
 
   },
 
+  // 初始化页面
+  async initHandler () {
+    wx.showLoading({title: '加载中'})
+    
+    // 判断是否注册用户: 是则登录
+    let user = await login()
+    if ( user.data.code == 200 && user.data.login ) {
+      await this.setData({
+        login_bool: true
+      })
+
+      app.globalData.userInfo.avatarUrl = user.data.userInfo.head_img
+      app.globalData.userInfo.nickName = user.data.userInfo.username
+
+      // 写入用户数据 
+      await this.setData({
+        userInfo: {
+          ...app.globalData.userInfo,
+          ...user.data.data
+        },
+        count_info: [{
+          text: '记账总笔数',
+          data: user.data.data.record_num
+        }, {
+          text: '累计收入',
+          data: changeMoney( user.data.data.income_count )
+        }, {
+          text: '累计支出',
+          data: changeMoney( user.data.data.expenditure_count )
+        }]
+      })
+    }
+
+    wx.hideLoading()
+  },
+
   // 微信授权登录（注册）
-  async login () {
-    wx.login({
-      timeout: 1000,
-      success: async res => {
-        let result = await register( this.data.userInfo.nickName, this.data.userInfo.avatarUrl, this.data.userInfo.session_key )
-        if ( result.data.code == 200 ) {
-          this.setData({
-            login_bool: true
-          })
-        }
+  async login (e) {
+    if ( e.detail.userInfo ) {
+      let result = await register( e.detail.userInfo.nickName, e.detail.userInfo.avatarUrl )
+      if ( result.data.code == 200 ) {
+        this.setData({
+          login_bool: true
+        })
       }
-    })
+      this.initHandler()
+    }
   },
 
   // 打卡
@@ -163,7 +168,6 @@ Page({
   },
 
   async setBudgetButton (e) {
-    console.log(e.detail.item.text)
     if ( e.detail.item.text == '取消' ) {
       this.setBudgetDialog(false)
     } else {
@@ -175,6 +179,7 @@ Page({
           duration: 2000
         })
         this.setBudgetDialog(false)
+        this.initHandler()
       }
     }
   }

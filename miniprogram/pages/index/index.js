@@ -13,19 +13,20 @@ Page({
   data: {
     bar: [{
       text: '账单',
-      src: '/images/icon/account.jpg'
+      src: '/images/icon/account.jpg',
+      url: '/pages/bill/bill'
     }, {
-      text: '预算',
-      src: '/images/icon/budget.jpg'
+      text: '图表',
+      src: '/images/icon/budget.jpg',
+      url: '/pages/add/add'
     }, {
-      text: '资产管家',
-      src: '/images/icon/housekeeper.jpg'
+      text: '预购',
+      src: '/images/icon/shopping.jpg',
+      url: '/pages/advancePay/advancePay'
     }, {
-      text: '理财知识',
-      src: '/images/icon/konwledge.jpg'
-    }, {
-      text: '购物返现',
-      src: '/images/icon/shopping.jpg'
+      text: '日历',
+      src: '/images/icon/konwledge.jpg',
+      url: '/pages/calendar/calendar'
     }],
     time: {
       year: dateFormat(new Date(), 'yyyy'),

@@ -1,0 +1,61 @@
+/* miniprogram/pages/bill/bill.wxss */
+
+/* 选择时间 */
+.bill .bar {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  font-size: 14px;
+  line-height: 40px;
+}
+
+.bill .bar picker {
+  position: absolute;
+  right: 10px;
+}
+
+/* 总计 */
+.bill .summary {
+  height: 60px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.bill .summary > text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.bill .summary view text {
+  margin: 0 20px;
+}
+
+/* 列表 */
+.bill .list {
+  width: 100%;
+  height: calc( 100vh - 120px );
+  background: white;
+  font-size: 14px;
+  box-sizing: border-box;
+  padding-top: 40px;
+  overflow: scroll;
+}
+
+.bill .list view {
+  display: flex;
+  height: 30px;
+  border-top: 1px solid #b4b4b4;
+}
+
+.bill .list view:last-child {
+  border-bottom: 1px solid #b4b4b4;
+}
+
+.bill .list view text {
+  flex: 1;
+  text-align: center;
+  line-height: 30px;
+}

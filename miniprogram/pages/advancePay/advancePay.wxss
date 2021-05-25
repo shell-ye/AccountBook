@@ -1,0 +1,139 @@
+/* miniprogram/pages/advancePay/advancePay.wxss */
+.advance-pay {
+  position: relative;
+  background: white;
+}
+
+.advance-pay .head {
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-bottom: 1px solid #b4b4b4;
+}
+
+.advance-pay .count {
+  height: 100px;
+  display: flex;
+  justify-items: flex-start;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid #b4b4b4;
+}
+
+.advance-pay .count > view {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 14px;
+}
+
+.advance-pay .count > view > view {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.advance-pay .count > view view view {
+  margin-bottom: -8px;
+}
+
+.advance-pay .count > view view view text:nth-child(1) {
+  font-size: 24px;
+  margin-right: 2px;
+}
+
+.advance-pay .count > view view view text:nth-child(2) {
+  font-size: 12px;
+}
+
+.advance-pay .count text {
+  font-size: 12px;
+}
+
+/* 最近要买 */
+.advance-pay .buy-recently {
+  height: 30px;
+  border-bottom: 1px solid #b4b4b4;
+  display: flex;
+  justify-items: flex-start;
+  align-items: center;
+}
+
+.advance-pay .buy-recently text:nth-child(1) {
+  background: red;
+  display: inline-block;
+  width: 4px;
+  height: 14px;
+  margin-left: 10px;
+  margin-right: 6px;
+}
+
+.advance-pay .buy-recently text:nth-child(2) {
+  margin-top: -2px;
+}
+
+/* 列表 */
+.advance-pay .list {
+  height: calc( 100vh - 170px );
+  overflow: scroll;
+}
+
+.advance-pay .list > view {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 12px;
+  height: 40px;
+  align-items: center;
+}
+
+.advance-pay .list > view:hover {
+  background: #f6f6f6
+}
+
+.advance-pay .list > view view text.iconfont {
+  color: yellowgreen;
+  transform: scale(1.5);
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* 添加 */
+.advance-pay .add {
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  font-size: 12px;
+  color: white;
+  padding: 6px 10px 6px 20px;
+  border-radius: 20px 0 0 20px;
+}
+
+/* 添加弹窗 */
+.advance-pay .add-dialog input {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 4px 0;
+}
+
+/* 修改弹窗 */
+.advance-pay .edit-dialog view {
+  font-size: 14px;
+}
+
+.advance-pay .edit-dialog view input {
+  border: 1px solid #ccc;
+  width: 146px;
+}
+
+.advance-pay .edit-dialog view.status {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.advance-pay .edit-dialog view.status radio {
+  transform: scale(.8);
+  font-size: 16px;
+}

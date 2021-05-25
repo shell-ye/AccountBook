@@ -1,0 +1,86 @@
+/* miniprogram/pages/calendar/calendar.wxss */
+
+/* 头部 */
+.calendar .select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.calendar .select text:nth-child(1), .calendar .select text:nth-child(3) {
+  font-size: 16px;
+  color: #999;
+  margin: 0px 10px;
+}
+
+.calendar .select text:nth-child(2) {
+  font-size: 18px;
+}
+
+/* 日历内容 */
+.calendar .content > view {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 0%;
+  box-sizing: border-box;
+}
+
+.calendar .content view > view {
+  width: 14%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 4px 8px;
+}
+
+.calendar .content view > view.red {
+  background: red;
+  color: white;
+}
+
+.calendar .content view > view.green {
+  background: yellowgreen;
+  color: white;
+}
+
+.calendar .content view > view text {
+  font-size: 10px;
+}
+
+/* 选项 */
+.calendar .options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+.calendar .options > view:nth-child(1) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.calendar .options > view:nth-child(1) text {
+  margin-right: 6px;
+}
+
+.calendar .options > view:nth-child(1) text:nth-child(1), .calendar .options view:nth-child(1) text:nth-child(3) {
+  display: inline-block;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: red;
+}
+
+.calendar .options view:nth-child(1) text:nth-child(3) {
+  background: yellowgreen;
+}
