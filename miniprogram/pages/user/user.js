@@ -62,7 +62,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.initHandler()
   },
 
   /**
@@ -139,6 +139,7 @@ Page({
   // 微信授权登录（注册）
   async login (e) {
     if ( e.detail.userInfo ) {
+      console.log(e)
       let result = await register( e.detail.userInfo.nickName, e.detail.userInfo.avatarUrl )
       if ( result.data.code == 200 ) {
         this.setData({

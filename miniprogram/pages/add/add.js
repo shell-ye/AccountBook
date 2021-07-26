@@ -61,7 +61,7 @@ Page({
         eidt: true,
         id: app.globalData.routerData.record.id,
         money: app.globalData.routerData.record.money,
-        time: app.globalData.routerData.record.time,
+        time: dateFormat(new Date(app.globalData.routerData.record.time.toString()), 'yyyy-MM-dd'),
         selected,
         showIcons,
         remark: app.globalData.routerData.record.remark,

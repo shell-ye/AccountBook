@@ -16,10 +16,10 @@ Page({
       src: '/images/icon/account.jpg',
       url: '/pages/bill/bill'
     }, {
-      text: '图表',
-      src: '/images/icon/budget.jpg',
-      url: '/pages/add/add'
-    }, {
+    //   text: '图表',
+    //   src: '/images/icon/budget.jpg',
+    //   url: '/pages/add/add'
+    // }, {
       text: '预购',
       src: '/images/icon/shopping.jpg',
       url: '/pages/advancePay/advancePay'

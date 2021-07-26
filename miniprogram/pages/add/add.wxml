@@ -36,7 +36,7 @@
       <picker mode="date" start="2020-01" end="2060-01" bindchange="selectDate">
         <text class="iconfont iconfontrili" wx:if="{{ today == time }}"></text>
         <text wx:if="{{ today == time }}">今天</text>
-        <text wx:else style="font-size: 28rpx">{{ utils.substring( time, 0, 10 ) }}</text>
+        <text wx:else style="font-size: 28rpx">{{ time }}</text>
       </picker>
     </view>
     <view class="row">

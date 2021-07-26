@@ -26,7 +26,7 @@
         </view>
       </view>
     </view>
-    <view class="row vip">
+    <!-- <view class="row vip">
       <view>
         <image src="/images/icon/crown.jpg"></image>
         <text>升级为VIP</text>
@@ -38,8 +38,8 @@
         <image src="{{ item.src }}"></image>
         <text class="deep-gray">{{ item.text }}</text>
       </view>
-    </view>
-    <view class="row bill">
+    </view> -->
+    <view class="row bill" style="margin-top: -20px;">
       <view class="head">
         <text>账单</text>
         <text class="iconfont iconfontyou"></text>
